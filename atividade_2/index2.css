@@ -12,6 +12,14 @@ body{
     border-radius: 30px;
 
 }
+
+#mn{
+  color: #f8839e;
+  font-family: Geneva, Verdana, sans-serif;;
+  text-align: center;
+  font-size: 15pt;
+  margin-top: 20px;
+}
 #nm{
     color: #f8839e;
     font-family: Georgia, 'Times New Roman', Times, serif;

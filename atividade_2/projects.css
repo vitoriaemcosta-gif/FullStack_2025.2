@@ -4,7 +4,7 @@ body{
 
 #container1{
     background-color: #ed85f475 ;
-    height: 200px;
+    height: 230px;
     border-radius: 30px;
     position: relative;
     align-items: center;
@@ -30,12 +30,20 @@ body{
     font-family:  "Trebuchet MS", Helvetica, sans-serif;
 }
 
+#mn{
+  color: #dd54e7;
+  font-family: Geneva, Verdana, sans-serif;;
+  text-align: center;
+  font-size: 15pt;
+  margin-top: 20px;
+}
+
 .link1{
     color: #7d0486;
     font-family: Geneva, Verdana, sans-serif;
     text-align: center;
     font-size: 15pt;
-    margin-top: -10px ;
+    margin-top: -15px ;
 
 }
 table{
