@@ -1,0 +1,120 @@
+body{
+    background-color:  lightgray;
+}
+
+
+#container1{
+    background-color:  bisque ;
+    height:  230px;
+    border: solid 2px black;
+    position: relative;
+    align-items: center;
+    text-align: center;
+
+}
+
+#container1 img{
+    display: inline;
+    position: relative;
+    top: 10px;
+}
+
+#container1 h1{
+    display: inline;
+    padding: 650px;
+    top: -80px;
+    position: relative;
+    color: darkgreen;
+}
+
+#menu{
+    background-color: lightskyblue;
+    height: 30px;
+}
+
+.p1{
+    margin-left: 40%;
+}
+
+#menu a{
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: darkred;
+}
+
+#introducao{
+    position: relative;
+    text-align: center;
+}
+#introducao h2{
+    color: black;
+    text-align: center;
+    font-size: 30pt;
+}
+
+#introducao p{
+    font-family: sans-serif;
+    color: indigo;
+    font-size: 20pt;
+}
+
+#introducao img{
+    padding: 30px;
+    height:518px ;
+}
+
+.book1{
+    width: 350px;
+}
+.book2{
+    width: 400px;
+}
+
+.book3{
+    width: 350px;
+}
+
+#introducao iframe{
+    height: 300px;
+    padding: 30px;
+    border-style: none;
+}
+
+#contatos{
+    text-align: center;
+}
+table{
+    text-align: center;
+    border: dashed red;
+    position: absolute;
+    left: 780px;
+ 
+}
+
+.nm{
+    color: red;
+}
+
+.em{
+    color: red;
+}
+
+#referencias{
+    top: 150px;
+    background-color: yellow;
+    position: relative; 
+    width: 400px;
+    left: 740px;
+}
+
+#referencias a{
+    text-align: center  ;
+}
+ul{
+    
+    
+    
+}
+
+
