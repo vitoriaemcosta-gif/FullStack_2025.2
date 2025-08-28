@@ -1,0 +1,20 @@
+p{
+    border-radius: 20px;
+    box-shadow: 5px 5px grey;
+}
+
+.solid{
+    border-style: solid;
+}
+
+.dotted{
+    border-style: dotted;
+}
+
+.dashed{
+    border-style: dashed;
+}
+
+.double{
+    border-style: double;
+}
