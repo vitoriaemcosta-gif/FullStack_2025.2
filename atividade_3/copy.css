@@ -101,7 +101,7 @@ table{
 }
 
 #referencias{
-    top: 150px;
+    top: 130px;
     background-color: yellow;
     position: relative; 
     width: 400px;
@@ -111,10 +111,39 @@ table{
 #referencias a{
     text-align: center  ;
 }
-ul{
-    
-    
-    
+
+
+#rodape{
+    background-color: bisque;
+    position: relative;
+    height:  180px;
+    text-align: center;
+    top: 150px;
 }
 
+
+#rodape p{
+    text-align: center;
+    font-family: comic sans ms;
+    font-size: 15pt;
+    display: inline;
+    top: -80px;
+    position: relative;
+}
+
+.html{
+    width: 160px;
+    position: relative;
+    display: inline;
+    left: -600px;
+    top: 10px;
+}
+
+.css{
+    width: 110px;
+    position: relative;
+    display: inline;
+    right: -580px;
+    top: 7px;
+}
 
