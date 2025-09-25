@@ -29,7 +29,7 @@
 
     quadrado(ctx, 2, 'aquamarine', '', 1, 249, 25, 50, 0, 0, 0, 0);
 
-    quadrado(ctx, 2, 'aquamarine', '', 2, 275, 50, 25, 0, 0, 0, 0);
+    quadrado(ctx, 2, 'aquamarine', '', 2, 274, 50, 25, 0, 0, 0, 0);
 
     quadrado(ctx, 2, 'black', '', 275, 250, 25, 50, 0, 0, 0, 0);
 
@@ -48,3 +48,18 @@
     linha(ctx, 1, 'blue', 50, 50, 150, 150);
     linha(ctx, 1, 'red', 250, 50, 150, 150);
     linha(ctx, 1, 'black', 150, 150, 150, 300);
+
+
+    function arco (contexto, lw, corborda, corfundo, x, y, tam, com, fim) {
+    contexto.beginPath();
+    contexto.lineWidth = lw;
+    contexto.fillStyle = corfundo;
+    contexto.strokeStyle = corborda;
+    contexto.arc(x,y,tam, com*Math.PI,fim*Math.PI);
+    contexto.fill();
+    contexto.stroke();
+    contexto.closePath();
+    }
+
+    arco(ctx, 1, 'green', 'white', 150, 150, 100, 1, 1.25);
+    arco(ctx, 1, 'green', 'white', 150, 150, 100, 1.75, 2);
