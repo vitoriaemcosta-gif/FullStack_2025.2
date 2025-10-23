@@ -1,17 +1,14 @@
-body{
-    background-color: rgb(221, 185, 255);
-}
-
-#caixa{
-     display: flex;
+#caixas{
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 200px;
-
 }
 
 #canvas{
     background-color: white;
-    
+}
+#canvas2{
+    background-color: aquamarine;
+    margin-top: 50px;
 }
