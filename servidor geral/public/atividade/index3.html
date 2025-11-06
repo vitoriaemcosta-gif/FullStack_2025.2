@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>Banco de Dados</h1>
+
+    <h2>Create</h2>
+
+    <form action="/cadastrar_usuario " method="POST">
+
+        <p>Nome:</p> <input type="text" name="nome" required>
+        <br><br>
+        <p>Email:</p> <input type="text" name="email" required>
+        <br><br>
+        <p>Senha:</p> <input type="password" name="senha" required>
+        <br><br>
+        <input type="submit" value="Cadastrar!">
+
+    </form>
+
+
+    <h2>Read</h2>
+
+    <form action="/logar_usuario " method="POST">
+
+        <p>Email:</p> <input type="text" name="email" required>
+        <br><br>
+        <p>Senha:</p> <input type="password" name="senha" required>
+        <br><br>
+        <input type="submit" value="Logar!">
+
+    </form>
+</body>
+</html>
