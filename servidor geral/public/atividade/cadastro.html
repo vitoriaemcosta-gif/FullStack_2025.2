@@ -10,39 +10,33 @@
 
     <div id="cadastro">
 
-    <h1>Cadastre-se</h1>
+    <h1>CADASTRE-SE</h1>
 
-    <form action="/cadastrar">
-        <P >Nome:</P>
-        <input type="text"  name="nome" required>
+    <form action="/cadastrar" method="POST">
+        <p class="texto">Nome:</p>
+        <input type="text" class="caixa" name="nome" required>
         <br><br>
-        <P>Email:</P>
-        <input type="text"  name="email" required>
+        <p class="texto">Email:</p>
+        <input type="text" class="caixa"  name="email" required>
         <br><br>
-        <P >Telefone:</P>
-        <input type="text"  name="telefone" required>
+        <p class="texto">Telefone:</p>
+        <input type="text" class="caixa"  name="telefone" required>
         <br><br>
-        <P>Senha:</P>
-        <input type="text"  name="senha" required>
+        <p class="texto">Senha:</p>
+        <input type="text" class="caixa"  name="senha" required>
         <br><br>
-        <input type="submit"  formmethod="GET"  value="Enviar">
-        <input type="submit"  formmethod="POST"  value="Enviar2">
+        <input type="submit" class="btn"   value="CADASTRAR">
+
     </form>
 
     <div id="login-link">
         <p>Já possui uma conta? </p>
-        <a href="/login">Faça login</a>
+        <a href="login.html">Faça login</a>
     </div>
 
     </div>
 
-        <!-- <h2>quantidade div</h2>
-    <form action="/for">
-        <P>digite a quantidade:</P>
-        <input type="text"  name="qtde" required>
-        <input type="submit"  formmethod="GET"  value="Enviar">
-    </form> -->
 
-        
+        <script src="cadastro.js"></script>
 </body>
 </html>
