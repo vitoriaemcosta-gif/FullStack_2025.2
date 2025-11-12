@@ -61,22 +61,25 @@ label{
     text-decoration: none;
     display: block;
     margin-bottom: 30px;
-    text-align: right;
+    text-align: center;
 }
 
 .btn-criar {
-    background-color: #007bff;
+   background-color: #e19cfa;
     color: white;
-    padding: 10px 20px;
+    padding: 8px;
+    width: 30%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
 .btn-criar:hover {
-    background-color: #0056b3;
+  background-color: #d667ff;
 }
 
 /* Estilização do Formulário de Cadastro */

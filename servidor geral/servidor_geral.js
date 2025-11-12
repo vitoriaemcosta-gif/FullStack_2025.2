@@ -30,10 +30,12 @@ app.get('/', function(req, res){
     res.redirect("atividade/projects.html");
 })
 
-app.get('/cadastra', function(req, res) {
-    res.render('atividade/cadastro.html'); 
-});
 
+app.get('/cadastra', function(req, res){
+    
+    res.render("atividade/login.html");
+    
+});
 
 app.get('/logar', function(req, res){
     
@@ -104,16 +106,59 @@ var dbo = client.db("exemplo_bd");
 var user = dbo.collection("usuarios");
 
 
-  app.post("/cadastrarblog", function(req, resp) {
-    var blog = { db_titulo: req.body.titulo, db_resumo: req.body.resumo, db_conteudo: req.body.conteudo };
+// --- Simulação de Banco de Dados (Requisito 5) ---
+// Array para armazenar os posts em memória
+let posts = [
+    { titulo: "Primeiro Post", resumo: "Teste", conteudo: "Esse é o primeiro post" },
+    { titulo: "Post2", resumo: "Teste2", conteudo: "Segundo post!" },
+    { titulo: "Post3", resumo: "Teste3", conteudo: "Terceiro post" }
+];
+
+// Função DB para buscar todos os posts (Requisito 5.b)
+function buscarTodosOsPosts() {
+    return posts;
+}
+
+// Função DB para cadastrar um novo post (Requisito 5.a)
+function cadastrarNovoPost(post) {
+    posts.unshift(post); // Adiciona o novo post no início do array
+    return post;
+}
+// ----------------------------------------------------
 
 
-    user.insertOne(blog, function (erro) {
-      if (erro) {
-        resp.render('resposta_usuario', {resposta: "Erro ao cadastrar usuário!"})
-      }else {
-        resp.render('resposta_usuario', {resposta: "Usuário cadastrado com sucesso!"})        
-      };
-    });
-   
-  });
+// Rota padrão (Requisito 3.c)
+app.get('/', function(req, res) {
+    // Redireciona o endereço padrão para a página do blog
+    res.redirect('/blog');
+});
+
+// Rota do Blog (Requisito 3.c & 4.a)
+app.get('/blog', function(req, res) {
+    // Busca todos os posts e renderiza a página blog.ejs
+    const todosPosts = buscarTodosOsPosts();
+    res.render('blog.ejs', { posts: todosPosts });
+});
+
+// Rota para a página de criação de Post (Requisito 1.c)
+app.get('/cadastrar_post.html', function(req, res) {
+    // Renderiza o template do formulário
+    res.render('blog.ejs');
+});
+
+// Rota POST para processar o formulário de Cadastro (Requisito 1.c.i)
+app.post('//cadastrarblog', function(req, res) {
+    const { titulo, resumo, conteudo } = req.body;
+    
+    // Cria um objeto Post
+    const novoPost = { titulo, resumo, conteudo };
+
+    // Cadastra no 'Banco de Dados'
+    cadastrarNovoPost(novoPost);
+
+    // Renderiza uma confirmação (ou redireciona para o blog)
+    // Vamos redirecionar para ver a lista atualizada
+    res.redirect('/blog'); 
+});
+
+// Comando para instalar as dependências: npm install express body-parser ejs
