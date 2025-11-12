@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Dinâmico</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+    <div id="container">
+        <a href="/cadastrar_post.html" class="criar-post-link">
+            <button class="btn-criar">Cria Post</button>
+        </a>
+
+        <h1>Últimos Posts</h1>
+
+        <% posts.forEach(function(post) { %>
+            <div class="post-card">
+                <div class="card-header">
+                    <h2><%= post.titulo %></h2>
+                    <span class="resumo"><%= post.resumo %></span>
+                </div>
+                <p class="conteudo-post"><%= post.conteudo %></p>
+            </div>
+        <% }); %>
+
+        <% if (posts.length === 0) { %>
+            <p>Nenhum post cadastrado ainda. Crie um!</p>
+        <% } %>
+
+    </div>
+
+</body>
+</html>

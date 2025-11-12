@@ -1,0 +1,32 @@
+p{
+                color: chartreuse;
+          
+            }
+
+            #d1{
+                background-color: violet;
+            }
+
+            .c1{
+                background-color: aquamarine;
+            }
+
+              .blue{
+                background-color: blue;
+            }
+
+            .size18{
+                font-size: 18pt;
+            }
+
+            div p{
+                font-size: 40pt;
+            }
+
+            div:hover{
+                background-color: yellow;
+            }
+
+            a:visited{
+                color: seagreen;
+            }

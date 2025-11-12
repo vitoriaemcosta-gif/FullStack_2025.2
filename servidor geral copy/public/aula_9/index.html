@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Get/Post e templates</title>
+</head>
+<body>
+    <h1>Get/Post e templates</h1>
+    
+    <h2>Exemplo de uso de métodos GET e POST</h2>
+
+    <form action="/cadastrar">
+        <P >Nome:</P>
+        <input type="text"  name="nome" required>
+        <br><br>
+        <P>Email:</P>
+        <input type="text"  name="email" required>
+        <br><br>
+        <P >Telefone:</P>
+        <input type="text"  name="telefone" required>
+        <br><br>
+        <P>Nascimento:</P>
+        <input type="date"  name="nascimento" required>
+        <br><br>
+        <input type="submit"  formmethod="GET"  value="Enviar">
+        <input type="submit"  formmethod="POST"  value="Enviar2">
+    </form>
+
+        <!-- <h2>quantidade div</h2>
+    <form action="/for">
+        <P>digite a quantidade:</P>
+        <input type="text"  name="qtde" required>
+        <input type="submit"  formmethod="GET"  value="Enviar">
+    </form> -->
+
+        
+</body>
+</html>

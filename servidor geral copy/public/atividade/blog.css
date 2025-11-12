@@ -1,0 +1,119 @@
+/* Requisito 2.b - Centralização dos elementos na página */
+body {
+    background-color: #f0f0f5; /* Requisito 2.b - Cor de fundo */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    margin: 0;
+}
+
+#container {
+    width: 50%;
+    height: 600px;
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilização para a página de posts */
+.post-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: #f9f9f9;
+}
+h1{
+    color: #d667ff;
+}
+
+.ct{
+    height: 150px;
+}
+
+label{
+    color: #682181;
+}
+.card-header h2 {
+    margin: 0 0 5px 0;
+    color: #d667ff; 
+}
+
+.resumo {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.conteudo-post {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Estilização do botão Criar Post e link */
+.criar-post-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+.btn-criar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-criar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilização do Formulário de Cadastro */
+.form-post {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 15px;
+}
+
+.form-post label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-post input[type="text"],
+.form-post textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-postar {
+    background-color: #e19cfa;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-postar:hover {
+    background-color: #d667ff;
+}

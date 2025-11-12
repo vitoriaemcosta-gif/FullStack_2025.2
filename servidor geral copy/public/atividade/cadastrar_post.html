@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Post</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+    <div id="container">
+        <h1>Criar Novo Post</h1>
+        <form action="/cadastrarblog" method="POST" class="form-post">
+            
+            <label >Título:</label>
+            <input class="tt" type="text" id="titulo" name="titulo" required>
+
+            <label >Resumo:</label>
+            <input class="tt" type="text" id="resumo" name="resumo" required>
+
+            <label >Conteúdo:</label>
+            <input class="ct" type="text" id="conteudo" name="conteudo" required>
+
+            <input  type="submit" value="Postar" class="btn-postar">
+        </form>
+    </div>
+
+</body>
+</html>
