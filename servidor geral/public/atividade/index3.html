@@ -36,5 +36,34 @@
         <input type="submit" value="Logar!">
 
     </form>
+
+    <h2>Update</h2>
+
+     <form action="/atualizar_usuario" method="POST">
+        <label for="email">login:</label>
+        <input type="text" id="email" name="login" required><br><br>
+
+        <label for="senha_atual">Senha Atual:</label>
+        <input type="password" id="senha_atual" name="senha" required><br><br>
+
+        <label for="nova_senha">Nova Senha:</label>
+        <input type="password" id="nova_senha" name="nova_senha" required><br><br>
+
+        <input type="submit" value="Atualizar Senha">
+
+    </form>
+
+        <h2>Delete</h2>
+
+     <form action="/remover_usuario" method="POST">
+        <label for="email">login:</label>
+        <input type="text" id="email" name="login" required><br><br>
+
+        <label for="senha_atual">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <input type="submit" value="Remover!">
+
+    </form>
 </body>
 </html>

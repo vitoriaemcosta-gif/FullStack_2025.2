@@ -36,15 +36,7 @@ app.get('/login', function(req, res){
 
 // link ejs para login
 
-app.get('/cadastra', function(req, res){
-    res.render("atividade/login.html");
-});
-
 //redireciona
-
-app.get('/cadastra', function(req, res){
-    res.redirect("atividade/cadastro.html");
-})
 
 app.get('/cadastra', function(req, res){
     res.redirect("atividade/cadastro.html");
@@ -99,10 +91,13 @@ app.get('/for', function(req, res){
 });
 
 ///////////////////////////////////
+/////////////// BANCO DE DADOS /////////////////////
+
 
 var dbo = client.db("exemplo_bd");
 var usuarios = dbo.collection("usuarios");
 
+/////////////// CADASTRAR /////////////////////
 
   app.post("/cadastrar_usuario", function(req, resp) {
     var data = { db_nome: req.body.nome, db_login: req.body.email, db_senha: req.body.senha };
@@ -118,6 +113,7 @@ var usuarios = dbo.collection("usuarios");
    
   });
 
+  /////////////// LOGAR /////////////////////
 
 app.post("/logar_usuario", function(req, resp) {
     var data = {db_login: req.body.email, db_senha: req.body.senha };
@@ -135,66 +131,46 @@ app.post("/logar_usuario", function(req, resp) {
 
   });
 
-//////////////// ATIVIDADE BLOG ////////////////////////
+  /////////////// ATUALIZAR /////////////////////
 
-// var dbo = client.db("exemplo_bd");
-// var user = dbo.collection("usuarios");
+app.post("/atualizar_usuario", function(req, resp) {
+    var data = { db_login: req.body.login, db_senha: req.body.senha };
+    var newData = { $set: {db_senha: req.body.nova_senha} };
+
+    usuarios.updateOne(data, newData, function (err, result) {
+      console.log(result);
+      if (result.modifiedCount == 0) {
+        resp.render('resposta_usuario', {resposta: "Usuário/senha não encontrado!"})
+      }else if (err) {
+        resp.render('resposta_usuario', {resposta: "Erro ao atualizar usuário!"})
+      }else {
+        resp.render('resposta_usuario', {resposta: "Usuário atualizado com sucesso!"})        
+      };
+    });
+   
+  });
+
+  /////////////// REMOVER /////////////////////
+
+  app.post("/remover_usuario", function(req, resp) {
+    var data = { db_login: req.body.login, db_senha: req.body.senha };
+   
+    usuarios.deleteOne(data, function (err, result) {
+      console.log(result);
+      if (result.deletedCount == 0) {
+        resp.render('resposta_usuario', {resposta: "Usuário/senha não encontrado!"})
+      }else if (err) {
+        resp.render('resposta_usuario', {resposta: "Erro ao remover usuário!"})
+      }else {
+        resp.render('resposta_usuario', {resposta: "Usuário removido com sucesso!"})        
+      };
+    });
+
+  });
 
 
-// // --- Simulação de Banco de Dados (Requisito 5) ---
-// // Array para armazenar os posts em memória
-// let posts = [
-//     { titulo: "Primeiro Post", resumo: "Teste", conteudo: "Esse é o primeiro post" },
-// ];
 
-// // Função DB para buscar todos os posts (Requisito 5.b)
-// function buscarTodosOsPosts() {
-//     return posts;
-// }
-
-// // Função DB para cadastrar um novo post (Requisito 5.a)
-// function cadastrarNovoPost(post) {
-//     posts.unshift(post); // Adiciona o novo post no início do array
-//     return post;
-// }
-// // ----------------------------------------------------
-
-
-// // Rota padrão (Requisito 3.c)
-// app.get('/', function(req, res) {
-//     // Redireciona o endereço padrão para a página do blog
-//     res.redirect('/blog');
-// });
-
-// // Rota do Blog (Requisito 3.c & 4.a)
-// app.get('/blog', function(req, res) {
-//     // Busca todos os posts e renderiza a página blog.ejs
-//     const todosPosts = buscarTodosOsPosts();
-//     res.render('blog.ejs', { posts: todosPosts });
-// });
-
-// // Rota para a página de criação de Post (Requisito 1.c)
-// app.get('/cadastrar_post.html', function(req, res) {
-//     // Renderiza o template do formulário
-//     res.render('blog.ejs');
-// });
-
-// // Rota POST para processar o formulário de Cadastro (Requisito 1.c.i)
-// app.post('//cadastrarblog', function(req, res) {
-//     const { titulo, resumo, conteudo } = req.body;
-    
-//     // Cria um objeto Post
-//     const novoPost = { titulo, resumo, conteudo };
-
-//     // Cadastra no 'Banco de Dados'
-//     cadastrarNovoPost(novoPost);
-
-//     // Renderiza uma confirmação (ou redireciona para o blog)
-//     // Vamos redirecionar para ver a lista atualizada
-//     res.redirect('/blog'); 
-// });
-
-// // Comando para instalar as dependências: npm install express body-parser ejs
+/////////// BLOG ///////////////////
 
 var postagem = dbo.collection("blog");
 
@@ -210,6 +186,10 @@ app.get("/cadastrar_blog", function(req, resp) {
     resp.redirect("/atividade/cadastrar_post.html");
 });
 
+app.get("/Blog", function(req, resp) {
+    resp.render('blog', {postagem: items})    
+});
+
 app.post("/cadastrarblog", function(req, resp) {
     var post = {bd_titulo: req.body.titulo, bd_resumo: req.body.resumo, bd_conteudo: req.body.conteudo};
     postagem.insertOne(post, function (err) {
@@ -220,3 +200,12 @@ app.post("/cadastrarblog", function(req, resp) {
       };
     }); 
 });
+
+
+
+
+////////////////// AULA 11 /////////////////////
+
+/////////// atualizar usuario /////////////
+
+

@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Dinâmico</title>
-    <link rel="stylesheet" href="atividade\blog.css">
+    <link rel="stylesheet" href="atividade\blogejs.css">
 </head>
 <body>
 
-        <div>
-        <h1>Últimos Posts</h1>
-        <button o class="criar-post-link" onclick="window.open('/cadastrar_blog')" style="cursor: pointer;">CRIAR POST</button>
-                
-       </div>
-       <br><br>
-       <%var i=1; for (var elemento of postagem) { %>
-
+        <div class="caixa1">
         
+        <button class="criar-post" onclick="window.open('/cadastrar_blog')" style="cursor: pointer;">CRIAR POST</button>          
+        <h1>Últimos Posts</h1>
+        </div>
 
+       <%var i=1; for (var elemento of postagem) { %>
     
             <h2>Postagem <%=i%></h2>
 
@@ -29,22 +26,7 @@
                 <p class="conteudo-post"><%= elemento.bd_conteudo %></p>
             </div>
 
-        <% }); %>
-
-        <% if (posts.length === 0) { %>
-            <p>Nenhum post cadastrado ainda. Crie um!</p>
-        <% } %>
-
-                    <div>
-                        
-                    </div>
-                        <br><br>
-                       
-
-
-
-
-    </div>
+            <% i++;} %>
 
 </body>
 </html>

@@ -1,0 +1,102 @@
+/* Base Styles */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.caixa1 { 
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; 
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #d667ff;;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.criar-post {
+    background-color: #e19cfa;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+.criar-post:hover {
+    background-color: #d667ff;
+}
+
+/* Títulos das Postagens */
+h2 {
+    color: #cd78ff;
+    padding: 4px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Post Card Container */
+.post-card {
+    background-color: #f2ceffdc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    padding: 25px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header dentro do Card */
+.card-header h2 {
+    color: var(--color-text);
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 0; 
+}
+
+/* Resumo */
+.resumo {
+    display: block;
+    color: #666;
+    font-style: italic;
+    font-size: 17px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Conteúdo */
+.conteudo-post {
+    color: var(--color-text);
+    margin: 0;
+}
