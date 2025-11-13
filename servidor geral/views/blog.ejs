@@ -8,26 +8,41 @@
 </head>
 <body>
 
-    <div id="container">
-        <a href="/cadastrar_post.html" class="criar-post-link">
-            <button class="btn-criar">Criar Post</button>
-        </a>
-
+        <div>
         <h1>Últimos Posts</h1>
+        <button o class="criar-post-link" onclick="window.open('/cadastrar_blog')" style="cursor: pointer;">CRIAR POST</button>
+                
+       </div>
+       <br><br>
+       <%var i=1; for (var elemento of postagem) { %>
 
-        <% posts.forEach(function(post) { %>
+        
+
+    
+            <h2>Postagem <%=i%></h2>
+
             <div class="post-card">
                 <div class="card-header">
-                    <h2><%= post.titulo %></h2>
-                    <span class="resumo"><%= post.resumo %></span>
+                    <h2><%= elemento.bd_titulo %></</h2>
+                    <span class="resumo"><%= elemento.bd_resumo %></span>
                 </div>
-                <p class="conteudo-post"><%= post.conteudo %></p>
+                <p class="conteudo-post"><%= elemento.bd_conteudo %></p>
             </div>
+
         <% }); %>
 
         <% if (posts.length === 0) { %>
             <p>Nenhum post cadastrado ainda. Crie um!</p>
         <% } %>
+
+                    <div>
+                        
+                    </div>
+                        <br><br>
+                       
+
+
+
 
     </div>
 

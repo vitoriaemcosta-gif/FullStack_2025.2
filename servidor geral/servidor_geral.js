@@ -137,61 +137,86 @@ app.post("/logar_usuario", function(req, resp) {
 
 //////////////// ATIVIDADE BLOG ////////////////////////
 
-var dbo = client.db("exemplo_bd");
-var user = dbo.collection("usuarios");
+// var dbo = client.db("exemplo_bd");
+// var user = dbo.collection("usuarios");
 
 
-// --- Simulação de Banco de Dados (Requisito 5) ---
-// Array para armazenar os posts em memória
-let posts = [
-    { titulo: "Primeiro Post", resumo: "Teste", conteudo: "Esse é o primeiro post" },
-];
+// // --- Simulação de Banco de Dados (Requisito 5) ---
+// // Array para armazenar os posts em memória
+// let posts = [
+//     { titulo: "Primeiro Post", resumo: "Teste", conteudo: "Esse é o primeiro post" },
+// ];
 
-// Função DB para buscar todos os posts (Requisito 5.b)
-function buscarTodosOsPosts() {
-    return posts;
-}
+// // Função DB para buscar todos os posts (Requisito 5.b)
+// function buscarTodosOsPosts() {
+//     return posts;
+// }
 
-// Função DB para cadastrar um novo post (Requisito 5.a)
-function cadastrarNovoPost(post) {
-    posts.unshift(post); // Adiciona o novo post no início do array
-    return post;
-}
-// ----------------------------------------------------
+// // Função DB para cadastrar um novo post (Requisito 5.a)
+// function cadastrarNovoPost(post) {
+//     posts.unshift(post); // Adiciona o novo post no início do array
+//     return post;
+// }
+// // ----------------------------------------------------
 
 
-// Rota padrão (Requisito 3.c)
-app.get('/', function(req, res) {
-    // Redireciona o endereço padrão para a página do blog
-    res.redirect('/blog');
-});
+// // Rota padrão (Requisito 3.c)
+// app.get('/', function(req, res) {
+//     // Redireciona o endereço padrão para a página do blog
+//     res.redirect('/blog');
+// });
 
-// Rota do Blog (Requisito 3.c & 4.a)
-app.get('/blog', function(req, res) {
-    // Busca todos os posts e renderiza a página blog.ejs
-    const todosPosts = buscarTodosOsPosts();
-    res.render('blog.ejs', { posts: todosPosts });
-});
+// // Rota do Blog (Requisito 3.c & 4.a)
+// app.get('/blog', function(req, res) {
+//     // Busca todos os posts e renderiza a página blog.ejs
+//     const todosPosts = buscarTodosOsPosts();
+//     res.render('blog.ejs', { posts: todosPosts });
+// });
 
-// Rota para a página de criação de Post (Requisito 1.c)
-app.get('/cadastrar_post.html', function(req, res) {
-    // Renderiza o template do formulário
-    res.render('blog.ejs');
-});
+// // Rota para a página de criação de Post (Requisito 1.c)
+// app.get('/cadastrar_post.html', function(req, res) {
+//     // Renderiza o template do formulário
+//     res.render('blog.ejs');
+// });
 
-// Rota POST para processar o formulário de Cadastro (Requisito 1.c.i)
-app.post('//cadastrarblog', function(req, res) {
-    const { titulo, resumo, conteudo } = req.body;
+// // Rota POST para processar o formulário de Cadastro (Requisito 1.c.i)
+// app.post('//cadastrarblog', function(req, res) {
+//     const { titulo, resumo, conteudo } = req.body;
     
-    // Cria um objeto Post
-    const novoPost = { titulo, resumo, conteudo };
+//     // Cria um objeto Post
+//     const novoPost = { titulo, resumo, conteudo };
 
-    // Cadastra no 'Banco de Dados'
-    cadastrarNovoPost(novoPost);
+//     // Cadastra no 'Banco de Dados'
+//     cadastrarNovoPost(novoPost);
 
-    // Renderiza uma confirmação (ou redireciona para o blog)
-    // Vamos redirecionar para ver a lista atualizada
-    res.redirect('/blog'); 
+//     // Renderiza uma confirmação (ou redireciona para o blog)
+//     // Vamos redirecionar para ver a lista atualizada
+//     res.redirect('/blog'); 
+// });
+
+// // Comando para instalar as dependências: npm install express body-parser ejs
+
+var postagem = dbo.collection("blog");
+
+app.get("/blog", function(req, resp) {
+ 
+    postagem.find({}).toArray(function(err, items) {
+      console.log(items);
+      resp.render('blog', {postagem: items})    
+    });
+  });
+
+app.get("/cadastrar_blog", function(req, resp) {
+    resp.redirect("/atividade/cadastrar_post.html");
 });
 
-// Comando para instalar as dependências: npm install express body-parser ejs
+app.post("/cadastrarblog", function(req, resp) {
+    var post = {bd_titulo: req.body.titulo, bd_resumo: req.body.resumo, bd_conteudo: req.body.conteudo};
+    postagem.insertOne(post, function (err) {
+      if (err) {
+        resp.render('blog_criado', {resposta: "Erro ao cadastrar a postagem!"})
+      }else {
+        resp.render('blog_criado', {resposta: "Postagem cadastrada com sucesso"})        
+      };
+    }); 
+});
