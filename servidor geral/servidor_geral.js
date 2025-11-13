@@ -30,12 +30,47 @@ app.get('/', function(req, res){
     res.redirect("atividade/projects.html");
 })
 
+app.get('/login', function(req, res){
+    res.redirect("atividade/login.html");
+})
+
+// link ejs para login
+
+app.get('/cadastra', function(req, res){
+    res.render("atividade/login.html");
+});
+
+//redireciona
+
+app.get('/cadastra', function(req, res){
+    res.redirect("atividade/cadastro.html");
+})
+
+app.get('/cadastra', function(req, res){
+    res.redirect("atividade/cadastro.html");
+})
 
 app.get('/cadastra', function(req, res){
     
-    res.render("atividade/login.html");
+    var nome = req.query.nome;
+    var telefone = req.query.telefone;
+    var email = req.query.email;
+    var senha = req.query.senha;
+    console.log( email, senha);
+    res.render("resposta_cad.ejs", { metodo: "GET",  nome, telefone, email, senha  });
     
 });
+
+app.post('/cadastra', function(req, res){
+    var nome = req.body.nome;
+    var telefone = req.body.telefone;
+    var email = req.body.email;
+    var senha = req.body.senha;
+
+
+    res.render("resposta_cad.ejs", { metodo: "POST", nome, telefone, email, senha });
+});
+
 
 app.get('/logar', function(req, res){
     
@@ -110,8 +145,6 @@ var user = dbo.collection("usuarios");
 // Array para armazenar os posts em memória
 let posts = [
     { titulo: "Primeiro Post", resumo: "Teste", conteudo: "Esse é o primeiro post" },
-    { titulo: "Post2", resumo: "Teste2", conteudo: "Segundo post!" },
-    { titulo: "Post3", resumo: "Teste3", conteudo: "Terceiro post" }
 ];
 
 // Função DB para buscar todos os posts (Requisito 5.b)

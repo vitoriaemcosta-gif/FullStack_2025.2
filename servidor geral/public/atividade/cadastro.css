@@ -13,16 +13,13 @@
   font-style: normal;
 }
 
-/* Estilização básica para o corpo da página */
 body {
-    /* Remove margens padrão e define o Flexbox para centralizar o conteúdo da página */
     margin: 0;
     min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente o item filho (.cadastro) */
-    align-items: center; /* Centraliza verticalmente o item filho (.cadastro) */
+    justify-content: center;
+    align-items: center;
     font-family: "Cormorant", serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     background-color: #fbebff; /* Cor de fundo suave para a página */
@@ -32,7 +29,6 @@ h1{
     color: #672c7c;
 }
 
-/* Estilização da caixa de cadastro */
 #cadastro {
     width: 90%; 
     max-width: 400px; 
@@ -43,15 +39,13 @@ h1{
     text-align: center; 
 }
 
-/* Centraliza os parágrafos de labels */
 .texto{
-    text-align: left; /* Volta o texto das labels para a esquerda */
+    text-align: left;
     margin-bottom: 5px;
     color: #672c7c;
     font-weight: bold;
 }
 
-/* Estilização dos campos de input */
 .caixa {
     width: 100%;
     height: 40px;
@@ -62,14 +56,13 @@ h1{
     box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
 }
 
-/* Estilização dos botões */
 .btn{
-    width: 48%; /* Dá um pouco de espaço entre os botões */
+    width: 48%; 
     padding: 10px;
     margin-top: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #df89ffdf; /* Cor primária do botão */
+    background-color: #df89ffdf; 
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -80,7 +73,6 @@ h1{
     background-color: #9340b1;
 }
 
-/* Alinhamento do link de login */
 #login-link {
     margin-top: 20px;
     padding-top: 10px;
